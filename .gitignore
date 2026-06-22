@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# DO NOT COMMIT RAW PARTICIPANT DATA.
+# The survey/signup exports and team roster contain participant emails and
+# names (PII) collected under an IRB-exempt protocol. Keep them out of the repo.
+# Co-authors should obtain the data folder through the shared (access-controlled)
+# location and point scripts at it via the DATATHON_DATA environment variable.
+# ---------------------------------------------------------------------------
+data/*
+!data/README.md
+*.xlsx
+*.xls
+*.csv
+*.docx
+
+# Notebooks may embed PII in cell outputs (names, emails).
+# Executed notebooks with outputs stay out of the repo by default.
+# The placeholder stubs in thematic/ and diversity/ are clean (no outputs) and are
+# explicitly tracked below.
+*.ipynb
+!thematic/thematic_analysis.ipynb
+!diversity/team_diversity.ipynb
+
+# Transport / bundle files
+*.bundle
+
+# Generated figures (reproduced by survey/figure2.py at runtime)
+figures/
+
+# Python / build artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+*.pdf
