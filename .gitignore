@@ -14,11 +14,10 @@ data/*
 
 # Notebooks may embed PII in cell outputs (names, emails).
 # Executed notebooks with outputs stay out of the repo by default.
-# The placeholder stubs in thematic/ and diversity/ are clean (no outputs) and are
-# explicitly tracked below.
+# The notebooks tracked below carry no cell outputs (verified PII-free).
 *.ipynb
 !thematic/thematic_analysis.ipynb
-!diversity/team_diversity.ipynb
+!diversity/demographics_and_diversity.ipynb
 
 # Transport / bundle files
 *.bundle

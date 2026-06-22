@@ -14,9 +14,9 @@ the files listed below in this folder (or set `DATATHON_DATA=/path/to/data`).
 |------|---------|-------------|
 | `presurvey.xlsx` | `survey/survey_analysis.py`, `survey/figure2.py` | Signup + pre-survey (306 rows). Col 1: email; col 5: consent; cols 6–18: 13 Likert items (1–5). |
 | `postsurvey.xlsx` | `survey/survey_analysis.py`, `survey/figure2.py` | Post-survey (92 rows). Col 1: email; col 2: consent; cols 3–15: same 13 items. |
-| `Diversity_and_Thematic_Analysis.ipynb` | `thematic/` | Executed notebook — clustering pipeline for Figures 3–5. |
-| `Datathon_Group_Diversity_Analysis.ipynb` | `diversity/` | Team-diversity figures (Figure 1E); reads `Manuscript_Teams.csv`. |
-| `Manuscript_Teams.csv` | `diversity/` | Team roster (contains names). |
+| `Manuscript Data (Combined).xlsx` | `diversity/demographics_and_diversity.ipynb` | Combined registration + survey export. The `Group Dynamic Analysis` sheet (participant demographics + team names) drives Figure 1. |
+| `Thematic_Data_2.csv` | `thematic/thematic_analysis.ipynb` | Two-coder coded free-text reflections; input to the clustering pipeline (Figures 3–4, Supp. Fig. S1). |
+| `Manuscript_Teams.csv` | `thematic/thematic_analysis.ipynb` | Team roster (contains names). |
 | `prepostresults.R` | `original/` | Authors' original R survey pipeline. |
 
 ---

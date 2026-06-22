@@ -17,7 +17,7 @@ thematic/
   thematic_analysis.ipynb  theme prevalence, sentiment, co-occurrence → Figures 3–4, Supp. Fig. S1
 
 diversity/
-  team_diversity.ipynb     team composition and diversity metrics → Figure 1E
+  demographics_and_diversity.ipynb   participant demographics + team composition → Figure 1
 
 original/
   prepostresults.R         original R survey pipeline (available with data package)
@@ -65,6 +65,6 @@ code expects.
 | Digital Health Literacy (3 items) | `survey_analysis.py` | Δ = +0.56, p < 0.001 |
 | Largest item gain | `survey_analysis.py` | Identify AI-appropriate problems (+0.87) |
 | Thematic clusters | `thematic_analysis.ipynb` | 7 themes, 140 codes, 21 reflections |
-| Submitting teams | `team_diversity.ipynb` | 31 / 49 (63%) |
+| Teams / matched members | `demographics_and_diversity.ipynb` | 49 teams, 190 members |
 
 All p-values are Wilcoxon signed-rank with Benjamini–Hochberg correction.
