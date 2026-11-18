@@ -457,6 +457,14 @@ def build():
          "the earlier DataSuture filing"],
         ["submission_form_rows", 34,
          "rows on the project submission form; 31 unique teams, three filed twice"],
+        ["submitting_members_consented", len(roster & consented),
+         "of the named members of submitting teams who had registered, how "
+         "many consented; the eligible denominator adds the registrants the "
+         "rosters miss, so it is larger than this"],
+        ["eligible_not_on_any_roster", len((set(post) & set(pre)) - roster),
+         "consenting registrants who completed the post-event survey but "
+         "appear on no team roster; the survey went only to members of "
+         "submitting teams, so they were on one"],
         ["submitting_members_unregistered", len(never_registered),
          "named members of the 31 submitting teams with no registration "
          "record; 149 minus this is how many have baseline data"],

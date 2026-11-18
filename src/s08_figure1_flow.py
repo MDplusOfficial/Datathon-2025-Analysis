@@ -52,6 +52,14 @@ FORMED_TEAMS    = FLOW["team_members"]
 ON_A_TEAM       = FLOW["registrants_on_a_team"]
 NAMED_REG       = FLOW["named_members_registered"]
 NAMED_UNREG     = FLOW["named_members_unregistered"]
+# Of the 149 named on the submission forms, 145 had registered and 140 of
+# those consented. The eligible denominator (144) is NOT 144 of these 149: it
+# is those 140 plus 4 consenting registrants who completed the post-event
+# survey but appear on no roster. The box therefore annotates 145/140, and the
+# caption explains the 144 separately.
+SUB_REGISTERED  = FLOW["submitting_members_registered"]
+SUB_CONSENTED   = FLOW["submitting_members_consented"]
+OFF_ROSTER      = FLOW["eligible_not_on_any_roster"]
 ELIGIBLE_CONS   = FLOW["consenting_on_submitting_teams"]
 N_TEAMS         = FLOW["teams"]
 SUBMITTED       = FLOW["submitting_team_members"]
@@ -72,7 +80,7 @@ MAIN = [
      f"Registrants who did not\njoin a team\nn = {REGISTERED - ON_A_TEAM}"),
     (f"On a team that submitted a project ({N_SUB_TEAMS} teams),\nand so eligible for the post-event survey",
      [f"n = {SUBMITTED} named members"],
-     f"of whom {ELIGIBLE_CONS} consented at registration",
+     f"of whom {SUB_REGISTERED} had registered and {SUB_CONSENTED} consented",
      f"Team did not submit a project\nn = {FORMED_TEAMS - SUBMITTED}"),
     ("Completed the post-event survey",
      [f"n = {POST_RESPONSES}"], None,
@@ -107,9 +115,16 @@ FOOTNOTE = (
     f"without registering, giving {N_TEAMS} teams in total. The {FORMED_TEAMS} "
     f"and {SUBMITTED} boxes count members NAMED on the team-registration and "
     f"project-submission forms; of those, {NAMED_REG} and "
-    f"{FLOW['submitting_members_registered']} respectively had completed "
+    f"{SUB_REGISTERED} respectively had completed "
     f"registration, and {ON_A_TEAM} registrants were on a team in all. The "
-    f"team-formation exclusion is given in registrants for that reason."
+    f"team-formation exclusion is given in registrants for that reason. "
+    f"A further {OFF_ROSTER} consenting registrants completed the post-event "
+    f"survey but appear on no team roster; because the survey was distributed "
+    f"only to members of submitting teams, they were on one, so the "
+    f"denominator for analyses requiring baseline data is {SUB_CONSENTED} + "
+    f"{OFF_ROSTER} = {ELIGIBLE_CONS} consenting registrants "
+    f"(Multimedia Appendix 7), not {ELIGIBLE_CONS} of the {SUBMITTED} named "
+    f"members."
 )
 
 BOX_W, BOX_H   = 0.50, 0.104

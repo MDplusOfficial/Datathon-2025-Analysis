@@ -64,6 +64,14 @@ def main():
         "registrants_on_a_team": sum(
             1 for v in P.values() if v["on_a_team"] == "y"),
         "named_members_registered": meta["named_members_registered"],
+        # Of the 149 named on the submission forms, 145 had registered and
+        # 140 of those consented. The eligible denominator is NOT 144 of these
+        # 149: it is those 140 plus 4 consenting registrants who completed the
+        # post-event survey but appear on no roster. Saying "149 named members,
+        # of whom 144 consented" is therefore false, and was wrong on an
+        # earlier draft of Figure 1.
+        "submitting_members_consented": meta["submitting_members_consented"],
+        "eligible_not_on_any_roster": meta["eligible_not_on_any_roster"],
         "submitting_members_registered": (
             submitting_members - meta["submitting_members_unregistered"]),
         "named_members_unregistered": (
@@ -108,6 +116,7 @@ def main():
               "team_members_distinct_people", "members_named_at_registration",
               "registrants_on_a_team", "named_members_registered",
               "named_members_unregistered", "submitting_members_registered",
+              "submitting_members_consented", "eligible_not_on_any_roster",
               "submitting_teams", "submitting_team_members", "post_form_rows",
               "post_respondents", "post_declined_consent", "post_consented",
               "post_consented_declined_at_registration",
