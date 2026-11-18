@@ -78,11 +78,11 @@ MAIN = [
      [f"n = {REGISTERED}"], None, None),
     (f"Formed a team\n({N_TEAMS} teams)",
      [f"n = {FORMED_TEAMS} named members"],
-     f"of whom {NAMED_REG} had registered and {NAMED_UNREG} had not",
+     None,
      f"Registrants who did not\njoin a team\nn = {REGISTERED - ON_A_TEAM}"),
     (f"On a team that submitted a project ({N_SUB_TEAMS} teams),\nand so eligible for the post-event survey",
      [f"n = {SUBMITTED} named members"],
-     f"of whom {SUB_REGISTERED} had registered and {SUB_CONSENTED} consented",
+     None,
      f"Named members whose team\ndid not submit a project\nn = {TF_NOT}"),
     ("Completed the post-event survey",
      [f"n = {POST_RESPONSES}"], None,
@@ -96,42 +96,43 @@ MAIN = [
      f"Did not match a pre-event\nrecord by email address\nn = {UNLINKED}"),
 ]
 
+# The boxes carry no sub-annotations: the derivations live here instead, so the
+# figure stays readable. Everything a reader needs to re-derive 84 and 144 is
+# in this caption.
 FOOTNOTE = (
-    f"The post-event survey was distributed only to members of the {N_SUB_TEAMS} "
-    f"teams that submitted a project, so n = {SUBMITTED} is the eligible "
-    f"denominator for post-event completion ({POST_RESPONSES}/{SUBMITTED} = "
-    f"{100*POST_RESPONSES/SUBMITTED:.0f}%). Post-event survey completion "
-    f"({POST_RESPONSES}), consent eligibility ({POST_CONSENTED}), successful "
-    f"pre/post linkage ({PAIRED}) and inclusion in the paired analysis "
-    f"({PAIRED}) are reported separately; all {POST_CONSENTED - UNLINKED} "
-    f"consented respondents who linked to a pre-event registration record had "
-    f"usable item responses at both timepoints, so linkage and inclusion "
-    f"coincided. Consent to research use of de-identified responses was "
-    f"collected at registration and again on the post-event survey; "
+    f"The post-event survey was distributed only to members of the "
+    f"{N_SUB_TEAMS} teams that submitted a project, so n = {SUBMITTED} is the "
+    f"eligible denominator for post-event completion "
+    f"({POST_RESPONSES}/{SUBMITTED} = "
+    f"{100*POST_RESPONSES/SUBMITTED:.0f}%). Counts through project submission "
+    f"are members NAMED on the team-registration and project-submission forms; "
+    f"counts from the post-event survey onward are people. Of the "
+    f"{FORMED_TEAMS} named members, {NAMED_REG} had completed registration and "
+    f"{NAMED_UNREG} had not, and {ON_A_TEAM} registrants were on a team in all "
+    f"(those {NAMED_REG}, plus members of the one team that filed no team "
+    f"registration), which is why {REGISTERED} - {ON_A_TEAM} = "
+    f"{REGISTERED - ON_A_TEAM} registrants did not join a team. The two team "
+    f"boxes do not subtract to the exclusion beside them: {TF_SUB} of the "
+    f"{FORMED_TEAMS} named members were on a submitting team and {TF_NOT} were "
+    f"not, while the {SUBMITTED} box comes from the submission forms, which add "
+    f"the six members of that unregistered team and differ from the roster for "
+    f"two further members. Of the {SUBMITTED}, {SUB_REGISTERED} had completed "
+    f"registration and {SUB_CONSENTED} of those consented; a further "
+    f"{OFF_ROSTER} consenting registrants completed the post-event survey but "
+    f"appear on no team roster, and since the survey went only to members of "
+    f"submitting teams they were on one. The denominator for analyses requiring "
+    f"baseline data is therefore {SUB_CONSENTED} + {OFF_ROSTER} = "
+    f"{ELIGIBLE_CONS} consenting registrants (Multimedia Appendix 7), not "
+    f"{ELIGIBLE_CONS} of the {SUBMITTED} named members. Consent to research use "
+    f"was collected at registration and again on the post-event survey; "
     f"{CONSENTED} of {REGISTERED} registrants "
     f"({100*CONSENTED/REGISTERED:.0f}%) consented at registration, and all "
     f"survey analyses are restricted to participants who consented at both "
-    f"timepoints. Team membership is taken from the team registration form, "
-    f"which named {FORMED_TEAMS} members across "
-    f"{FLOW['registered_teams']} teams; one further team submitted a project "
-    f"without registering, giving {N_TEAMS} teams in total. The {FORMED_TEAMS} "
-    f"and {SUBMITTED} boxes count members NAMED on the team-registration and "
-    f"project-submission forms; of those, {NAMED_REG} and "
-    f"{SUB_REGISTERED} respectively had completed "
-    f"registration, and {ON_A_TEAM} registrants were on a team in all. The "
-    f"team-formation exclusion is given in registrants for that reason. "
-    f"The two team boxes do not subtract to the exclusion beside them: "
-    f"{TF_SUB} of the {FORMED_TEAMS} named members were on a submitting team "
-    f"and {TF_NOT} were not, while the {SUBMITTED} box is taken from the "
-    f"submission forms, which add the six members of the team that filed no "
-    f"team registration and differ from the roster for two further members. "
-    f"A further {OFF_ROSTER} consenting registrants completed the post-event "
-    f"survey but appear on no team roster; because the survey was distributed "
-    f"only to members of submitting teams, they were on one, so the "
-    f"denominator for analyses requiring baseline data is {SUB_CONSENTED} + "
-    f"{OFF_ROSTER} = {ELIGIBLE_CONS} consenting registrants "
-    f"(Multimedia Appendix 7), not {ELIGIBLE_CONS} of the {SUBMITTED} named "
-    f"members."
+    f"timepoints. Post-event completion ({POST_RESPONSES}), consent "
+    f"({POST_CONSENTED}) and pre/post linkage ({PAIRED}) are reported "
+    f"separately; every consented respondent who linked to a registration "
+    f"record had usable items at both timepoints, so linkage and inclusion "
+    f"coincided."
 )
 
 BOX_W, BOX_H   = 0.50, 0.104
