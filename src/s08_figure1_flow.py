@@ -107,8 +107,8 @@ FOOTNOTE = (
     f"people, so two exclusions are not differences between adjacent boxes: "
     f"{ON_A_TEAM} of the {REGISTERED} registrants were on a team, and the "
     f"team-registration form places {TF_SUB} of the {FORMED_TEAMS} named "
-    f"members on submitting teams. Multimedia Appendix 7 reconciles every "
-    f"count. Survey analyses use only participants who consented at both "
+    f"members on submitting teams. Survey analyses use only participants "
+    f"who consented at both "
     f"timepoints ({CONSENTED} of {REGISTERED} at registration)."
 )
 
