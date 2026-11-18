@@ -457,6 +457,17 @@ def build():
          "the earlier DataSuture filing"],
         ["submission_form_rows", 34,
          "rows on the project submission form; 31 unique teams, three filed twice"],
+        ["teamform_members_not_submitting",
+         sum(len(v["members"]) for t, v in team_reg.items()
+             if tkey(t) not in sub_keys),
+         "named members on the team-registration form whose team did not "
+         "submit; the honest complement of the 220, counted on one form"],
+        ["teamform_members_submitting",
+         sum(len(v["members"]) for t, v in team_reg.items()
+             if tkey(t) in sub_keys),
+         "named members on the team-registration form whose team did submit; "
+         "145, not the 149 of the submission forms, which add the 6 members "
+         "of the one team that filed no team registration"],
         ["submitting_members_consented", len(roster & consented),
          "of the named members of submitting teams who had registered, how "
          "many consented; the eligible denominator adds the registrants the "

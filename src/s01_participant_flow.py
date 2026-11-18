@@ -70,6 +70,12 @@ def main():
         # post-event survey but appear on no roster. Saying "149 named members,
         # of whom 144 consented" is therefore false, and was wrong on an
         # earlier draft of Figure 1.
+        # 220 - 149 = 71 is not a count of anybody: 220 comes from the team
+        # registration form and 149 from the submission forms, and one team
+        # (6 members) is in the second but not the first. Within the team
+        # registration form the split is 145 submitting / 75 not.
+        "teamform_members_submitting": meta["teamform_members_submitting"],
+        "teamform_members_not_submitting": meta["teamform_members_not_submitting"],
         "submitting_members_consented": meta["submitting_members_consented"],
         "eligible_not_on_any_roster": meta["eligible_not_on_any_roster"],
         "submitting_members_registered": (
@@ -117,6 +123,7 @@ def main():
               "registrants_on_a_team", "named_members_registered",
               "named_members_unregistered", "submitting_members_registered",
               "submitting_members_consented", "eligible_not_on_any_roster",
+              "teamform_members_submitting", "teamform_members_not_submitting",
               "submitting_teams", "submitting_team_members", "post_form_rows",
               "post_respondents", "post_declined_consent", "post_consented",
               "post_consented_declined_at_registration",

@@ -60,6 +60,8 @@ NAMED_UNREG     = FLOW["named_members_unregistered"]
 SUB_REGISTERED  = FLOW["submitting_members_registered"]
 SUB_CONSENTED   = FLOW["submitting_members_consented"]
 OFF_ROSTER      = FLOW["eligible_not_on_any_roster"]
+TF_SUB          = FLOW["teamform_members_submitting"]
+TF_NOT          = FLOW["teamform_members_not_submitting"]
 ELIGIBLE_CONS   = FLOW["consenting_on_submitting_teams"]
 N_TEAMS         = FLOW["teams"]
 SUBMITTED       = FLOW["submitting_team_members"]
@@ -81,7 +83,7 @@ MAIN = [
     (f"On a team that submitted a project ({N_SUB_TEAMS} teams),\nand so eligible for the post-event survey",
      [f"n = {SUBMITTED} named members"],
      f"of whom {SUB_REGISTERED} had registered and {SUB_CONSENTED} consented",
-     f"Team did not submit a project\nn = {FORMED_TEAMS - SUBMITTED}"),
+     f"Named members whose team\ndid not submit a project\nn = {TF_NOT}"),
     ("Completed the post-event survey",
      [f"n = {POST_RESPONSES}"], None,
      f"Did not complete the\npost-event survey\nn = {SUBMITTED - POST_RESPONSES}"),
@@ -118,6 +120,11 @@ FOOTNOTE = (
     f"{SUB_REGISTERED} respectively had completed "
     f"registration, and {ON_A_TEAM} registrants were on a team in all. The "
     f"team-formation exclusion is given in registrants for that reason. "
+    f"The two team boxes do not subtract to the exclusion beside them: "
+    f"{TF_SUB} of the {FORMED_TEAMS} named members were on a submitting team "
+    f"and {TF_NOT} were not, while the {SUBMITTED} box is taken from the "
+    f"submission forms, which add the six members of the team that filed no "
+    f"team registration and differ from the roster for two further members. "
     f"A further {OFF_ROSTER} consenting registrants completed the post-event "
     f"survey but appear on no team roster; because the survey was distributed "
     f"only to members of submitting teams, they were on one, so the "
