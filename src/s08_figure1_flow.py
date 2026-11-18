@@ -96,25 +96,20 @@ MAIN = [
      f"Did not match a pre-event\nrecord by email address\nn = {UNLINKED}"),
 ]
 
-# The boxes carry no sub-annotations: the derivations live here instead, so the
-# figure stays readable. Everything a reader needs to re-derive 84 and 144 is
-# in this caption.
-# Short on purpose. It states the unit change, and the two places where the
-# boxes do not subtract. Everything else belongs in the Methods.
+# Short on purpose. The caption states the unit change and the two numbers
+# that resolve the exclusions beside the team boxes. The full reconciliation
+# -- the 200/20 split, the 140, and the 144 denominator -- lives in the
+# Multimedia Appendix 7 note, which is where a reader checking arithmetic is
+# already looking.
 FOOTNOTE = (
-    f"Boxes through project submission count members NAMED on the "
-    f"team-registration and project-submission forms; later boxes count people. "
-    f"Of the {FORMED_TEAMS} named members {NAMED_REG} had registered, and "
-    f"{ON_A_TEAM} registrants were on a team in all, so {REGISTERED - ON_A_TEAM} "
-    f"of the {REGISTERED} did not join one. The team-registration form places "
-    f"{TF_SUB} of the {FORMED_TEAMS} on submitting teams and {TF_NOT} elsewhere; "
-    f"the submission forms name {SUBMITTED}, adding one team that filed no "
-    f"registration. Of those {SUBMITTED}, {SUB_REGISTERED} had registered and "
-    f"{SUB_CONSENTED} consented; with {OFF_ROSTER} further consenting "
-    f"registrants identified by post-survey receipt, {ELIGIBLE_CONS} could "
-    f"contribute baseline data (Multimedia Appendix 7). Survey analyses use "
-    f"only participants who consented at both timepoints "
-    f"({CONSENTED}/{REGISTERED} at registration)."
+    f"Boxes through project submission count members named on the "
+    f"team-registration and project-submission forms; later boxes count "
+    f"people, so two exclusions are not differences between adjacent boxes: "
+    f"{ON_A_TEAM} of the {REGISTERED} registrants were on a team, and the "
+    f"team-registration form places {TF_SUB} of the {FORMED_TEAMS} named "
+    f"members on submitting teams. Multimedia Appendix 7 reconciles every "
+    f"count. Survey analyses use only participants who consented at both "
+    f"timepoints ({CONSENTED} of {REGISTERED} at registration)."
 )
 
 BOX_W, BOX_H   = 0.50, 0.104
