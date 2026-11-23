@@ -1,34 +1,21 @@
-# ---------------------------------------------------------------------------
-# DO NOT COMMIT RAW PARTICIPANT DATA.
-# The survey/signup exports and team roster contain participant emails and
-# names (PII) collected under an IRB-exempt protocol. Keep them out of the repo.
-# Co-authors should obtain the data folder through the shared (access-controlled)
-# location and point scripts at it via the DATATHON_DATA environment variable.
-# ---------------------------------------------------------------------------
-data/*
-!data/README.md
-*.xlsx
-*.xls
-*.csv
-*.docx
+# Participant-level data (PII, IRB-exempt protocol). See data/README.md.
+data/presurvey.xlsx
+data/postsurvey.xlsx
+data/Manuscript Data (Combined).xlsx
+data/Submissions.xlsx
+data/Datathon Team Registration (Responses).xlsx
+data/2025 MD+ Datathon signup (Responses).xlsx
 
-# Notebooks may embed PII in cell outputs (names, emails).
-# Executed notebooks with outputs stay out of the repo by default.
-# The notebooks tracked below carry no cell outputs (verified PII-free).
-*.ipynb
-!thematic/thematic_analysis.ipynb
-!diversity/demographics_and_diversity.ipynb
+# The built dataset is de-identified, but it is still participant-level data
+# under the IRB-exempt protocol, so it is shared on request rather than posted.
+data/datathon_dataset.xlsx
 
-# Transport / bundle files
-*.bundle
+# Name and email crosswalk. Never share this.
+data/_crosswalk_private.csv
 
-# Generated figures (reproduced by survey/figure2.py at runtime)
+# Generated
+outputs/
 figures/
-
-# Python / build artifacts
 __pycache__/
 *.pyc
-.venv/
-venv/
 .DS_Store
-*.pdf

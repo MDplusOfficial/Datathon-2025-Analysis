@@ -1,40 +1,56 @@
 # Data
 
-The raw survey exports are not included in this repository because they contain
-participant names and email addresses (PII) collected under an IRB-exempt protocol.
+The analyses read one de-identified dataset, `datathon_dataset.xlsx`, built by
+`src/s00_build_dataset.py` from the raw exports below. Data were collected under
+an IRB exemption (Rutgers New Jersey Medical School, Pro2025002209), so neither
+the dataset nor the raw exports are included here. The de-identified dataset is
+available from the corresponding author on reasonable request.
 
-**To request access**, contact the corresponding author. Collaborators should place
-the files listed below in this folder (or set `DATATHON_DATA=/path/to/data`).
+## datathon_dataset.xlsx
 
----
+Participants are identified as P001-P306 and teams as T01-T49; the file holds
+no names or email addresses. The `dictionary` sheet defines every column and its
+source.
 
-## Expected files
+| sheet | rows | contents |
+|---|---|---|
+| `meta` | | counts describing the source forms |
+| `dictionary` | | column definitions |
+| `participants` | 306 | registration, consent, characteristics, team membership, survey items |
+| `teams` | 49 | registration and submission status, member counts |
+| `projects` | 31 | clinical domain of each submitted project |
+| `empowerment_mechanisms` | 6 | patient empowerment mechanisms |
+| `technical_methods` | 31 | methods reported by each team |
+| `freetext_responses` | 34 | reviewers' codes and sentiment for each reflection |
+| `freetext_clusters` | 7 | cluster labels, definitions and response counts |
+| `freetext_cooccurrence` | 7 | cluster co-occurrence |
+| `freetext_silhouette` | 10 | consensus silhouette by number of clusters |
 
-| File | Used by | Description |
-|------|---------|-------------|
-| `presurvey.xlsx` | `survey/survey_analysis.py`, `survey/figure2.py` | Signup + pre-survey (306 rows). Col 1: email; col 5: consent; cols 6–18: 13 Likert items (1–5). |
-| `postsurvey.xlsx` | `survey/survey_analysis.py`, `survey/figure2.py` | Post-survey (92 rows). Col 1: email; col 2: consent; cols 3–15: same 13 items. |
-| `Manuscript Data (Combined).xlsx` | `diversity/demographics_and_diversity.ipynb` | Combined registration + survey export. The `Group Dynamic Analysis` sheet (participant demographics + team names) drives Figure 1. |
-| `Thematic_Data_2.csv` | `thematic/thematic_analysis.ipynb` | Two-coder coded free-text reflections; input to the clustering pipeline (Figures 3–4, Supp. Fig. S1). |
-| `Manuscript_Teams.csv` | `thematic/thematic_analysis.ipynb` | Team roster (contains names). |
-| `prepostresults.R` | `original/` | Authors' original R survey pipeline. |
+## Raw exports (not shared)
 
----
+| file | contents |
+|---|---|
+| `presurvey.xlsx` | registration form with the pre-event survey (306 submissions, 292 registrants) |
+| `postsurvey.xlsx` | post-event survey (92 submissions, 91 respondents) |
+| `Manuscript Data (Combined).xlsx` | characteristics of consenting registrants |
+| `Submissions.xlsx` | project submission form (34 submissions, 31 teams) and the reviewers' coding of the free-text reflections |
+| `Datathon Team Registration (Responses).xlsx` | team registration form (220 named members across 48 teams; one further team submitted without filing it) |
+| `2025 MD+ Datathon signup (Responses).xlsx` | full registration export |
 
-## Likert items (column order in both exports)
+## Coding files (included)
 
-| # | Short label | Construct |
-|---|-------------|-----------|
-| 0 | Explain core AI concepts | Medical AI Readiness (MAIRS-MS) |
-| 1 | Identify AI-appropriate problems | Medical AI Readiness |
-| 2 | Interpret AI outputs | Medical AI Readiness |
-| 3 | Ethical responsibilities | Medical AI Readiness |
-| 4 | Collaborate with non-clinical | Medical AI Readiness |
-| 5 | Vision for AI empowerment | Medical AI Readiness |
-| 6 | AI tools useful for patients | AI Technology Acceptance (TAM) |
-| 7 | AI improves care effectiveness | AI Technology Acceptance (TAM) |
-| 8 | Intend to recommend AI | AI Technology Acceptance (TAM) |
-| 9 | Confident addressing AI questions | AI Technology Acceptance (TAM) |
-| 10 | Find digital health resources | Digital Health Literacy |
-| 11 | Judge digital health quality | Digital Health Literacy |
-| 12 | Use digital tools for self-mgmt | Digital Health Literacy |
+| file | contents |
+|---|---|
+| `coding/project_coding.md` | clinical domain and patient empowerment coding of the 31 projects |
+| `coding/project_coding_narrative.md` | coding write-up, including the technical methods inventory |
+| `coding/project_codes_raw.md` | initial codes for each project |
+| `coding/project_domains.md` | projects by clinical domain |
+| `coding/free_text_clusters.md` | outputs of the free-text clustering |
+
+## Notes
+
+- `team_label` is a participant's team; `registration_team_group` is the team
+  name typed at registration, which Figure 2E groups by.
+- Institution is free text. In `src/common.py`, `bucket_institution()` groups it
+  for Figure 2 and `institution_identity()` resolves it for the institution
+  count.
